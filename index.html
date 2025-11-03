@@ -1,55 +1,145 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <title>Heeseung's Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>저의 Website에 오신것을 환영합니다!</h1>
-    <p>이 페이지는 저의 첫번째 포트폴리오 웹사이트입니다!</p>
-  </header>
-
-  <!-- About Section -->
-  <section id="Introduce">
-    <h2>Introduce_Myself</h2>
-    <p>
-      안녕하세요 저는 강희승입니다, 공주대학교 산업공학과에 재학하고 있으며 산업공학의 전반적인 내용에 대해 공부하고 있습니다. 저는 사람들과 함께하는 모든것을 즐깁니다.
-    </p>
-  </section>
-
-  <!-- Hobbies Section -->
-  <section id="About-Me">
-    <h2>About-Me</h2>
-    <ul>
-      <li>공주대학교 산업공학과 제 28대 학생회장</li>
-      <li>축구,농구,야구를 좋아하는 스포츠 광</li>
-      <li>배움의 즐거움을 좋아하는 산업공학도</li>
+<!-- Navigation -->
+<header class="site-header">
+  <nav class="nav">
+    <div class="logo">Heeseung.dev</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-  </section>
+    <button class="nav-toggle">Menu</button>
+  </nav>
+</header>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>© 2025 My First Website</p>
-  </footer>
+<!-- Hero -->
+<section id="home" class="hero">
+  <h1>안녕하세요, <span class="accent">강희승</span>입니다.</h1>
+  <p>산업공학 기반의 데이터·AI 엔지니어링을 연구합니다.</p>
+  <a href="#contact" class="btn">Contact Me</a>
+</section>
+
+<!-- About -->
+<section id="about" class="section">
+  <h2>Introduce Myself</h2>
+  <div class="about-grid">
+    <img src="images/portfolio.jpg" class="avatar" alt="Profile Image">
+
+    <div>
+      <p>
+        공주대학교 산업공학과 재학 중이며,<br>
+        품질·데이터 분석·AI 분야에 열정을 가지고 있습니다.<br>
+        사람들과 함께 배우고 성장하는 것을 좋아합니다.
+      </p>
+      <ul class="tags">
+        <li>산업공학도</li>
+        <li>데이터 분석</li>
+        <li>AI 학습</li>
+        <li>학생회장</li>
+        <li>문제 해결</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <p>Industry Engineering 기반 데이터 분석 및 시스템 구현 경험 보유</p>
+
+  <ul class="tags">
+    <li>Python</li>
+    <li>R</li>
+    <li>MySQL</li>
+    <li>TensorFlow / CNN 기초</li>
+    <li>Quality Engineering</li>
+    <li>Six Sigma</li>
+  </ul>
+</section>
+
+<!-- Personal Traits -->
+<section id="traits" class="section">
+  <h2>About Me</h2>
+  <ul>
+    <li>공주대학교 산업공학과 제 28대 학생회장</li>
+    <li>축구·농구·야구 등 스포츠 활동 애호가</li>
+    <li>배움과 실천을 즐기는 산업공학도</li>
+  </ul>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Database MES System</h3>
+      <p>공장 생산 관리 시스템 구축 (MySQL + Java)</p>
+      <a class="link" href="#" target="_blank">GitHub</a>
+    </div>
+
+    <div class="card">
+      <h3>AI Defect Detection</h3>
+      <p>CNN 기반 이미지 불량 탐지 모델 개발</p>
+      <a class="link" href="#" target="_blank">GitHub</a>
+    </div>
+
+    <div class="card">
+      <h3>6 Sigma Spare Parts Project</h3>
+      <p>자재 대여 프로세스 개선 프로젝트</p>
+      <a class="link" href="#" target="_blank">프로젝트 요약</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section contact-form">
+  <h2>Contact</h2>
+  <p>협업 및 프로젝트 제안은 언제든지 환영합니다.</p>
+
+  <p>
+    📩 Email: <strong>deerbaby43@gmail.com</strong>
+  </p>
+
+  <p>
+    🌐 Find me on:
+    <a href="https://github.com" target="_blank">GitHub</a> |
+    <a href="https://twitter.com" target="_blank">Twitter</a>
+  </p>
+</section>
+
+<!-- My Goal -->
+<section class="section">
+  <h2>My Goal</h2>
+  <p>
+    산업공학 기반의 데이터 분석 역량을 바탕으로  
+    제조·품질 영역의 문제를 해결하는 AI Engineer로 성장하고자 합니다.
+  </p>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  © 2025 Heeseung Portfolio
+</footer>
+
+<script>
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+navToggle.onclick = () => navLinks.classList.toggle("open");
+</script>
 
 </body>
 </html>
-<img src="images/portfolio.jpg" alt="My Profile Picture" width="150">
-<p>
-  Find me on:
-  <a href="https://twitter.com" target="_blank">Twitter</a> |
-  <a href="https://github.com" target="_blank">GitHub</a>
-</p>
-<section>
-  <h2>Contact Me</h2>
-  <p>
-    If you want to collaborate on projects or just say hi,
-    email me at <strong>deerbaby43@gmail.com</strong>.
-  </p>
-</section>
+
