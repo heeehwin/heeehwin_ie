@@ -1,50 +1,39 @@
-// ==============================
-// 1) About Me 버튼 스크롤 이동
-// ==============================
+// ===== About Me 버튼 부드러운 스크롤 =====
 document.getElementById("scrollBtn").addEventListener("click", () => {
   document.getElementById("about").scrollIntoView({ behavior: "smooth" });
 });
 
-// ==============================
-// 2) 스크롤 시 섹션 부드럽게 등장 (fade-in)
-// ==============================
+// ===== 스크롤 시 부드러운 Fade-in 등장 효과 =====
 const fadeEls = document.querySelectorAll("section, .project-card, .skill-card");
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
+      if (entry.isIntersecting) entry.target.classList.add("show");
     });
   },
   { threshold: 0.2 }
 );
-
 fadeEls.forEach((el) => observer.observe(el));
 
-// ==============================
-// 3) 프로젝트 카드 hover 확대 효과
-// ==============================
-document.querySelectorAll(".project-card").forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.style.transform = "scale(1.03)";
-    card.style.transition = "transform 0.3s ease";
-  });
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "scale(1)";
-  });
-});
-
-// ==============================
-// 4) 다크모드 토글 기능
-// ==============================
+// ===== 다크모드 토글 =====
 const darkBtn = document.getElementById("darkModeBtn");
 let darkMode = false;
-
 darkBtn.addEventListener("click", () => {
   darkMode = !darkMode;
   document.body.classList.toggle("dark", darkMode);
   darkBtn.textContent = darkMode ? "☀️" : "🌙";
 });
 
+// ===== 사이드바 열고 닫기 (햄버거 버튼) =====
+const menuBtn = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+});
+
+// ===== 사이드바 밖 클릭 시 자동 닫기 =====
+document.addEventListener("click", (e) => {
+  if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+    sidebar.classList.remove("active");
+  }
+});
