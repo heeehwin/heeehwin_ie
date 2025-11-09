@@ -1,80 +1,50 @@
-/* ================================
-   Smooth Scroll for Navigation
-================================= */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const targetId = link.getAttribute('href');
-    if (targetId.length > 1) {
-      e.preventDefault();
-      document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-      navMenu.classList.remove('open');
-    }
+// ==============================
+// 1) About Me 버튼 스크롤 이동
+// ==============================
+document.getElementById("scrollBtn").addEventListener("click", () => {
+  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+});
+
+// ==============================
+// 2) 스크롤 시 섹션 부드럽게 등장 (fade-in)
+// ==============================
+const fadeEls = document.querySelectorAll("section, .project-card, .skill-card");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+fadeEls.forEach((el) => observer.observe(el));
+
+// ==============================
+// 3) 프로젝트 카드 hover 확대 효과
+// ==============================
+document.querySelectorAll(".project-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    card.style.transform = "scale(1.03)";
+    card.style.transition = "transform 0.3s ease";
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "scale(1)";
   });
 });
 
-/* ================================
-   Mobile Nav Toggle
-================================= */
-const navBtn = document.getElementById('navToggle');
-const navMenu = document.getElementById('navLinks');
+// ==============================
+// 4) 다크모드 토글 기능
+// ==============================
+const darkBtn = document.getElementById("darkModeBtn");
+let darkMode = false;
 
-if (navBtn) {
-  navBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
-}
+darkBtn.addEventListener("click", () => {
+  darkMode = !darkMode;
+  document.body.classList.toggle("dark", darkMode);
+  darkBtn.textContent = darkMode ? "☀️" : "🌙";
+});
 
-/* ================================
-   Contact Form (Front-end Demo)
-================================= */
-const formEl = document.getElementById('contactForm');
-const statusEl = document.getElementById('formStatus');
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-if (formEl) {
-  formEl.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    if (!name || !email || !message) {
-      statusEl.textContent = "🙂 모든 필드를 채워주세요.";
-      statusEl.className = "status err";
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      statusEl.textContent = "📧 이메일 형식을 다시 확인해주세요.";
-      statusEl.className = "status err";
-      return;
-    }
-
-    statusEl.textContent = "✅ 메시지가 전달되었어요! 곧 연락드릴게요.";
-    statusEl.className = "status ok";
-
-    formEl.reset();
-    setTimeout(() => {
-      statusEl.textContent = "";
-    }, 3500);
-  });
-}
-
-/* ================================
-   Fade-In on Scroll (Soft Animation)
-================================= */
-const fadeItems = document.querySelectorAll(".section, .card, .hero");
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.18 });
-
-fadeItems.forEach(el => revealObserver.observe(el));
