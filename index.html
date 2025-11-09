@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heeseung Kang | Portfolio</title>
+  <title>Kang Heeseung | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
+  <script src="https://kit.fontawesome.com/a2e0a4b67f.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- 햄버거 버튼 -->
+  <button id="menuToggle" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </button>
+
   <!-- 사이드바 -->
   <aside class="sidebar">
     <h2>Heeseung</h2>
@@ -16,20 +22,22 @@
         <li><a href="#about">About Me</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- 다크모드 토글 -->
+  <!-- 다크모드 버튼 -->
   <button id="darkModeBtn">🌙</button>
 
-  <!-- 메인 컨텐츠 -->
+  <!-- 메인 콘텐츠 -->
   <main>
     <header>
       <h1>산업공학으로 세상을 효율적으로, 사람답게.</h1>
       <button id="scrollBtn">About Me 보기 ↓</button>
     </header>
 
+    <!-- About -->
     <section id="about">
       <div class="about-container">
         <img src="images/profile.jpg" alt="프로필 사진" class="profile-img" />
@@ -47,42 +55,112 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">Python</div>
-        <div class="skill-card">R</div>
-        <div class="skill-card">SQL</div>
-        <div class="skill-card">Java</div>
-        <div class="skill-card">Six Sigma</div>
-        <div class="skill-card">Data Analytics</div>
-        <div class="skill-card">Database Design</div>
+
+      <div class="skills-category">
+        <h3>📊 Data & Analytics</h3>
+        <div class="skills-grid">
+          <div class="skill-card">Python</div>
+          <div class="skill-card">R</div>
+          <div class="skill-card">SQL</div>
+          <div class="skill-card">Power BI</div>
+          <div class="skill-card">TensorFlow</div>
+          <div class="skill-card">Scikit-learn</div>
+          <div class="skill-card">Pandas</div>
+          <div class="skill-card">NumPy</div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>⚙️ Industrial Engineering & Quality</h3>
+        <div class="skills-grid">
+          <div class="skill-card">Six Sigma (Green Belt)</div>
+          <div class="skill-card">SPC</div>
+          <div class="skill-card">DOE</div>
+          <div class="skill-card">FMEA</div>
+          <div class="skill-card">Minitab</div>
+          <div class="skill-card">Process Capability</div>
+          <div class="skill-card">ISO 9001</div>
+          <div class="skill-card">IATF 16949</div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>💻 Systems & Development</h3>
+        <div class="skills-grid">
+          <div class="skill-card">MySQL</div>
+          <div class="skill-card">ERD Design</div>
+          <div class="skill-card">Java</div>
+          <div class="skill-card">HTML/CSS/JS</div>
+          <div class="skill-card">JDBC</div>
+          <div class="skill-card">Git</div>
+          <div class="skill-card">MES</div>
+          <div class="skill-card">ERP</div>
+        </div>
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="project-grid">
+
         <div class="project-card">
-          <h3>S/P 자재 대여 프로세스 개선</h3>
-          <p>6시그마 DMAIC 기반으로 Spare Parts 대여 프로세스를 분석하여 
-          대기 시간 단축 및 공정능력 향상(Z=1.38→개선 목표)을 달성한 품질 개선 프로젝트.</p>
+          <div class="project-icon"><i class="fas fa-cogs"></i></div>
+          <h3>S/P 자재 대여 프로세스 개선 (6시그마)</h3>
+          <p>Spare Parts 대여 프로세스의 비효율 개선을 위해 6시그마 DMAIC 방법론을 적용하였습니다. 
+          공정 능력 평가(Z=1.38, 약 400k PPM)를 통해 개선 필요성을 도출하고, 절차 단축 및 표준화를 통해 대기시간 25% 단축을 달성했습니다.</p>
         </div>
+
         <div class="project-card">
+          <div class="project-icon"><i class="fas fa-industry"></i></div>
           <h3>공장 생산관리 시스템 (MES 설계)</h3>
-          <p>생산공정 데이터를 체계적으로 관리하기 위해 MySQL 기반 MES 시스템을 설계.
-          공정 흐름, 설비, 작업자 데이터를 통합하여 실시간 관리 기능을 구현.</p>
+          <p>MySQL 기반의 MES(Manufacturing Execution System)를 설계하여 
+          공정, 설비, 작업자 데이터를 통합 관리하는 시스템을 구축했습니다. 
+          ERD를 기반으로 공정 데이터를 구조화하고 SQL 트리거로 실시간 모니터링 기능을 구현했습니다.</p>
         </div>
+
         <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
           <h3>품질 이상 탐지 모델 (로지스틱 회귀)</h3>
-          <p>공정 데이터 기반 품질 이상 판별을 위한 분류 모델 구축.
-          ROC Curve, Confusion Matrix를 활용해 모델 성능 검증 및 불량 탐지율 개선.</p>
+          <p>공정 데이터 기반 불량 예측을 위해 로지스틱 회귀 모델을 구축하였습니다. 
+          변수 중요도(IV, VIF) 분석을 수행하고 ROC Curve, Confusion Matrix를 통해 모델 성능을 정량 평가했습니다.</p>
         </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-brain"></i></div>
+          <h3>제조 데이터 기반 CNN 품질 분류 모델</h3>
+          <p>제조 이미지 데이터를 활용해 불량/정상 제품을 자동 분류하는 CNN 모델을 구축했습니다. 
+          Conv2D, MaxPooling, Dropout 구조로 구성하고, 60/20/20 데이터 분할로 학습 정확도 92%, 불량 탐지율 90%를 달성했습니다.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-users"></i></div>
+          <h3>공주대학교 산업공학과 제28대 학회 ‘IdEal’ 운영 프로젝트</h3>
+          <p>산업공학과 학회장으로서 제28대 ‘IdEal’을 이끌며 
+          조직 관리, 예산·행사 기획, SNS 홍보 및 신입생 프로그램을 주도했습니다. 
+          리더십과 협업을 바탕으로 구성원 참여율 향상과 학회 활성화를 실현했습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-icons">
+        <a href="mailto:deer1361@naver.com" class="icon-btn" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.instagram.com/heeehwin/" target="_blank" class="icon-btn" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </section>
 
     <footer>
-      <p>© 2025 Heeseung Kang | Industrial Engineering Portfolio</p>
+      <p>© 2025 heeehwin | My First Portfolio</p>
     </footer>
   </main>
 </body>
