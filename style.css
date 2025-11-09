@@ -243,27 +243,69 @@ section {
   margin-top: 30px;
 }
 
+/* 공통 버튼 스타일 */
 .icon-btn {
-  background-color: #fff5ee;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
-  color: #ff8c42;
+  font-size: 1.7rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-.icon-btn:hover {
+/* 이메일 버튼 */
+.icon-btn.email {
   background-color: #ff8c42;
   color: white;
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+
+.icon-btn.email:hover {
+  background-color: white;
+  color: #ff8c42;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 인스타 버튼 */
+.icon-btn.instagram {
+  background-color: white;
+  color: #E1306C; /* 인스타그램 컬러 */
+  border: 2px solid #E1306C;
+}
+
+.icon-btn.instagram:hover {
+  background-color: #E1306C;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 다크모드 대응 ===== */
+body.dark .icon-btn.email {
+  background-color: #ff8c42;
+  color: white;
+}
+
+body.dark .icon-btn.email:hover {
+  background-color: #333;
+  color: #ff8c42;
+}
+
+body.dark .icon-btn.instagram {
+  background-color: #1e1e1e;
+  border-color: #E1306C;
+  color: #E1306C;
+}
+
+body.dark .icon-btn.instagram:hover {
+  background-color: #E1306C;
+  color: white;
+}
+
 
 /* ===== Footer ===== */
 footer {
