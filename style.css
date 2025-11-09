@@ -5,13 +5,59 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Pretendard', sans-serif;
-  color: #333333;
+  color: #333;
   scroll-behavior: smooth;
 }
 
 body {
   background-color: #ffffff;
-  line-height: 1.6;
+  display: flex;
+}
+
+/* ===== 사이드바 ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #fff5ee;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 2px solid #ff8c42;
+}
+
+.sidebar h2 {
+  color: #ff8c42;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.sidebar a:hover {
+  color: #ff8c42;
+}
+
+/* ===== 메인 컨텐츠 ===== */
+main {
+  margin-left: 240px;
+  width: calc(100% - 240px);
 }
 
 header {
@@ -27,7 +73,6 @@ header {
 header h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  color: #333;
 }
 
 header button {
@@ -45,14 +90,9 @@ header button:hover {
   background-color: #e1782f;
 }
 
+/* ===== 섹션 ===== */
 section {
   padding: 80px 10%;
-}
-
-#about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .about-container {
@@ -61,6 +101,7 @@ section {
   flex-wrap: wrap;
   align-items: center;
   max-width: 900px;
+  margin: auto;
 }
 
 .profile-img {
@@ -78,6 +119,7 @@ section {
   margin-bottom: 20px;
 }
 
+/* ===== Skills ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -97,6 +139,7 @@ section {
   transform: translateY(-5px);
 }
 
+/* ===== Projects ===== */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -116,9 +159,72 @@ section {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 30px;
   background-color: #fff5ee;
   font-size: 0.9rem;
+}
+
+/* ===== 다크모드 토글 버튼 ===== */
+#darkModeBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+#darkModeBtn:hover {
+  background: #e1782f;
+}
+
+/* ===== Scroll Fade-in Animation ===== */
+section, .project-card, .skill-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.show, .project-card.show, .skill-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 다크모드 스타일 ===== */
+body.dark {
+  background-color: #1e1e1e;
+}
+
+body.dark .sidebar {
+  background-color: #2a2a2a;
+  border-color: #ff8c42;
+}
+
+body.dark .sidebar a {
+  color: #ddd;
+}
+
+body.dark main,
+body.dark header,
+body.dark section {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark .project-card {
+  background-color: #2a2a2a;
+}
+
+body.dark .skill-card {
+  background-color: #333;
 }
